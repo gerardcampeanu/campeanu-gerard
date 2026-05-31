@@ -19,7 +19,10 @@
     </main>
     <script>
       const hubLink = document.getElementById("hub-link");
-      if (["localhost", "127.0.0.1"].includes(window.location.hostname)) {
+      if (
+        window.location.protocol === "file:" ||
+        ["localhost", "127.0.0.1"].includes(window.location.hostname)
+      ) {
         hubLink.href = "http://localhost:4174/";
       }
     </script>
