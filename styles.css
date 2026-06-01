@@ -106,15 +106,18 @@ p {
 
 .primary-link,
 .secondary-link,
-.disabled-link {
+.channel-button {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0 18px;
   border-radius: 8px;
+  border: 0;
   font-weight: 800;
+  font: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .primary-link {
@@ -123,15 +126,28 @@ p {
 }
 
 .secondary-link,
-.disabled-link {
+.channel-button {
   color: var(--green-dark);
   border: 1px solid var(--line);
   background: #ffffff;
 }
 
-.disabled-link {
-  color: #7a7f76;
-  cursor: default;
+.channel-button {
+  white-space: nowrap;
+}
+
+.channel-button:hover,
+.channel-button:focus-visible,
+.secondary-link:hover,
+.secondary-link:focus-visible {
+  border-color: var(--green);
+  outline: none;
+}
+
+.primary-link:hover,
+.primary-link:focus-visible {
+  background: var(--green-dark);
+  outline: none;
 }
 
 .cover-art {
@@ -213,6 +229,10 @@ p {
 .songs {
   display: grid;
   gap: 14px;
+}
+
+.songs[hidden] {
+  display: none;
 }
 
 .section-heading {

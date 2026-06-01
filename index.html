@@ -19,8 +19,12 @@
             up here so the real tracks can be added next.
           </p>
           <div class="hero-actions" aria-label="Music links">
-            <a class="primary-link" href="#songs">Songs</a>
-            <a class="secondary-link" href="#channel">Channel</a>
+            <button class="primary-link" id="hero-channel-button" type="button">
+              Channel
+            </button>
+            <button class="secondary-link" id="hero-songs-button" type="button">
+              Songs
+            </button>
           </div>
         </div>
 
@@ -37,17 +41,25 @@
           <p class="section-label">Channel</p>
           <h2 id="channel-title">Gerard's channel</h2>
           <p>
-            Add the YouTube, Spotify, SoundCloud, or Apple Music link here once
-            you choose where the channel should point.
+            Press the channel button to open every song on this page. New MP3s
+            can be added here as the channel grows.
           </p>
         </div>
-        <span class="disabled-link" aria-disabled="true">Channel link coming soon</span>
+        <button
+          class="channel-button"
+          id="show-songs-button"
+          type="button"
+          aria-controls="songs"
+          aria-expanded="false"
+        >
+          Show all songs
+        </button>
       </section>
 
-      <section class="songs" id="songs" aria-labelledby="songs-title">
+      <section class="songs" id="songs" aria-labelledby="songs-title" hidden>
         <div class="section-heading">
           <p class="section-label">MP3 library</p>
-          <h2 id="songs-title">Songs</h2>
+          <h2 id="songs-title">All songs</h2>
         </div>
 
         <article class="song-card">
@@ -88,6 +100,25 @@
       ) {
         hubLink.href = "http://localhost:4174/";
       }
+
+      const songsSection = document.getElementById("songs");
+      const channelButtons = [
+        document.getElementById("hero-channel-button"),
+        document.getElementById("hero-songs-button"),
+        document.getElementById("show-songs-button")
+      ];
+
+      function showSongs() {
+        songsSection.hidden = false;
+        channelButtons.forEach((button) => {
+          button?.setAttribute("aria-expanded", "true");
+        });
+        songsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      channelButtons.forEach((button) => {
+        button?.addEventListener("click", showSongs);
+      });
     </script>
   </body>
 </html>
