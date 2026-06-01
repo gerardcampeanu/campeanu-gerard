@@ -44,6 +44,20 @@
             Press the channel button to open every song on this page. New songs
             can be added here as the channel grows.
           </p>
+          <p class="channel-more" id="channel-more" hidden>
+            CyberBeats is Gerard's music space for songs, remixes, cover art,
+            and channel updates. More releases can be added here as they are
+            finished.
+          </p>
+          <button
+            class="show-more-button"
+            id="show-more-button"
+            type="button"
+            aria-controls="channel-more"
+            aria-expanded="false"
+          >
+            Show more
+          </button>
         </div>
         <div class="channel-actions">
           <a
@@ -128,6 +142,16 @@
 
       channelButtons.forEach((button) => {
         button?.addEventListener("click", showSongs);
+      });
+
+      const showMoreButton = document.getElementById("show-more-button");
+      const channelMore = document.getElementById("channel-more");
+
+      showMoreButton?.addEventListener("click", () => {
+        const isOpen = !channelMore.hidden;
+        channelMore.hidden = isOpen;
+        showMoreButton.textContent = isOpen ? "Show more" : "Show less";
+        showMoreButton.setAttribute("aria-expanded", String(!isOpen));
       });
     </script>
   </body>
