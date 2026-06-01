@@ -153,7 +153,8 @@ p {
   margin-top: 14px;
 }
 
-.channel-more[hidden] {
+.channel-more[hidden],
+.song-more[hidden] {
   display: none;
 }
 
@@ -334,6 +335,11 @@ p {
 }
 
 .song-info p {
+  margin-bottom: 14px;
+}
+
+.song-more-button {
+  margin-top: 0;
   margin-bottom: 14px;
 }
 
