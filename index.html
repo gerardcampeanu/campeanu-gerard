@@ -4,19 +4,82 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gerard Campeanu</title>
-    <meta name="description" content="A simple personal site for Gerard Campeanu.">
+    <meta name="description" content="Gerard Campeanu's music channel and songs.">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="site-shell">
-      <p class="eyebrow">Gerard's site</p>
-      <h1>Gerard Campeanu</h1>
-      <p>
-        A small personal website for Gerard. This page is ready to grow into a
-        portfolio, project page, or personal home online.
-      </p>
-      <a id="hub-link" href="http://campeanu.me/">Back to family hub</a>
+    <main class="site-shell" aria-labelledby="page-title">
+      <header class="hero">
+        <div class="hero-copy">
+          <a id="hub-link" class="back-link" href="http://campeanu.me/">Family hub</a>
+          <p class="eyebrow">Music channel</p>
+          <h1 id="page-title">Gerard Campeanu</h1>
+          <p>
+            Songs, mixes, and channel updates in one place. MP3 players are set
+            up here so the real tracks can be added next.
+          </p>
+          <div class="hero-actions" aria-label="Music links">
+            <a class="primary-link" href="#songs">Songs</a>
+            <a class="secondary-link" href="#channel">Channel</a>
+          </div>
+        </div>
+
+        <div class="cover-art" aria-hidden="true">
+          <span class="disc"></span>
+          <span class="wave wave-one"></span>
+          <span class="wave wave-two"></span>
+          <span class="wave wave-three"></span>
+        </div>
+      </header>
+
+      <section class="channel-panel" id="channel" aria-labelledby="channel-title">
+        <div>
+          <p class="section-label">Channel</p>
+          <h2 id="channel-title">Gerard's channel</h2>
+          <p>
+            Add the YouTube, Spotify, SoundCloud, or Apple Music link here once
+            you choose where the channel should point.
+          </p>
+        </div>
+        <span class="disabled-link" aria-disabled="true">Channel link coming soon</span>
+      </section>
+
+      <section class="songs" id="songs" aria-labelledby="songs-title">
+        <div class="section-heading">
+          <p class="section-label">MP3 library</p>
+          <h2 id="songs-title">Songs</h2>
+        </div>
+
+        <article class="song-card">
+          <div class="song-cover cover-gold" aria-hidden="true">
+            <span></span>
+          </div>
+          <div class="song-info">
+            <p class="song-kicker">Track 01</p>
+            <h3>First song</h3>
+            <p>Waiting for the MP3 file and final title.</p>
+            <audio controls preload="none">
+              <source src="audio/first-song.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+        </article>
+
+        <article class="song-card">
+          <div class="song-cover cover-green" aria-hidden="true">
+            <span></span>
+          </div>
+          <div class="song-info">
+            <p class="song-kicker">Track 02</p>
+            <h3>Second song</h3>
+            <p>Waiting for the MP3 file and final title.</p>
+            <audio controls preload="none">
+              <source src="audio/second-song.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+        </article>
+      </section>
     </main>
+
     <script>
       const hubLink = document.getElementById("hub-link");
       if (
