@@ -247,6 +247,17 @@ p {
     rgba(31, 36, 48, 0.84);
 }
 
+.image-cover {
+  overflow: hidden;
+}
+
+.image-cover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
 .cover-gold {
   background: linear-gradient(135deg, #c9871d, #f0d591);
 }
