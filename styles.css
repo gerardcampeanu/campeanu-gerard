@@ -107,7 +107,6 @@ p {
 .primary-link,
 .secondary-link,
 .channel-button,
-.show-more-button,
 .youtube-button {
   min-height: 44px;
   display: inline-flex;
@@ -134,23 +133,8 @@ p {
   background: #ffffff;
 }
 
-.channel-button,
-.show-more-button {
+.channel-button {
   white-space: nowrap;
-}
-
-.show-more-button {
-  min-height: 38px;
-  margin-top: 14px;
-  padding: 0 14px;
-  color: var(--green-dark);
-  border: 1px solid var(--line);
-  background: #ffffff;
-  font-size: 0.95rem;
-}
-
-.song-more[hidden] {
-  display: none;
 }
 
 .channel-actions {
@@ -174,8 +158,6 @@ p {
 
 .channel-button:hover,
 .channel-button:focus-visible,
-.show-more-button:hover,
-.show-more-button:focus-visible,
 .secondary-link:hover,
 .secondary-link:focus-visible {
   border-color: var(--green);
@@ -330,11 +312,6 @@ p {
 }
 
 .song-info p {
-  margin-bottom: 14px;
-}
-
-.song-more-button {
-  margin-top: 0;
   margin-bottom: 14px;
 }
 

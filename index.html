@@ -89,20 +89,6 @@
           <div class="song-info">
             <p class="song-kicker">Track 02</p>
             <h3>Sun Come Back - Disco Remix</h3>
-            <p class="song-more" id="track-02-more" hidden>
-              A brighter disco-pop version of Sun Come Back with the new
-              CyberBeats cover art. The audio file can be added here when it is
-              ready.
-            </p>
-            <button
-              class="show-more-button song-more-button"
-              id="track-02-more-button"
-              type="button"
-              aria-controls="track-02-more"
-              aria-expanded="false"
-            >
-              Show more
-            </button>
             <audio controls preload="metadata">
               <source src="audio/sun-come-back-disco-remix.wav" type="audio/wav">
             </audio>
@@ -166,15 +152,6 @@
         button?.addEventListener("click", showSongs);
       });
 
-      const track02MoreButton = document.getElementById("track-02-more-button");
-      const track02More = document.getElementById("track-02-more");
-
-      track02MoreButton?.addEventListener("click", () => {
-        const isOpen = !track02More.hidden;
-        track02More.hidden = isOpen;
-        track02MoreButton.textContent = isOpen ? "Show more" : "Show less";
-        track02MoreButton.setAttribute("aria-expanded", String(!isOpen));
-      });
     </script>
   </body>
 </html>
