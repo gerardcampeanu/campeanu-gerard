@@ -106,7 +106,8 @@ p {
 
 .primary-link,
 .secondary-link,
-.channel-button {
+.channel-button,
+.youtube-button {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -134,6 +135,25 @@ p {
 
 .channel-button {
   white-space: nowrap;
+}
+
+.channel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.youtube-button {
+  color: #ffffff;
+  background: #d81920;
+  white-space: nowrap;
+}
+
+.youtube-button:hover,
+.youtube-button:focus-visible {
+  background: #b61218;
+  outline: none;
 }
 
 .channel-button:hover,
@@ -319,6 +339,10 @@ audio {
   .channel-panel {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .channel-actions {
+    justify-content: flex-start;
   }
 
   .song-cover {
