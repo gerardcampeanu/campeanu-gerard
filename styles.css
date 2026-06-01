@@ -149,11 +149,6 @@ p {
   font-size: 0.95rem;
 }
 
-.channel-more {
-  margin-top: 14px;
-}
-
-.channel-more[hidden],
 .song-more[hidden] {
   display: none;
 }
