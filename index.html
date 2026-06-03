@@ -8,31 +8,7 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="site-shell" aria-labelledby="page-title">
-      <header class="hero">
-        <div class="hero-copy">
-          <a id="hub-link" class="back-link" href="http://campeanu.me/">Family hub</a>
-          <p class="eyebrow">Music channel</p>
-          <h1 id="page-title">Gerard Campeanu</h1>
-          <p>
-            Songs, mixes, and channel updates in one place. Music players are
-            set up here so the real tracks can be played.
-          </p>
-          <div class="hero-actions" aria-label="Music links">
-            <button class="primary-link" id="hero-channel-button" type="button">
-              Channel
-            </button>
-          </div>
-        </div>
-
-        <div class="cover-art" aria-hidden="true">
-          <span class="disc"></span>
-          <span class="wave wave-one"></span>
-          <span class="wave wave-two"></span>
-          <span class="wave wave-three"></span>
-        </div>
-      </header>
-
+    <main class="site-shell" aria-labelledby="channel-title">
       <section class="channel-panel" id="channel" aria-labelledby="channel-title">
         <div>
           <p class="section-label">Channel</p>
@@ -137,17 +113,8 @@
     </main>
 
     <script>
-      const hubLink = document.getElementById("hub-link");
-      if (
-        window.location.protocol === "file:" ||
-        ["localhost", "127.0.0.1"].includes(window.location.hostname)
-      ) {
-        hubLink.href = "http://localhost:4174/";
-      }
-
       const songsSection = document.getElementById("songs");
       const channelButtons = [
-        document.getElementById("hero-channel-button"),
         document.getElementById("show-songs-button")
       ];
 

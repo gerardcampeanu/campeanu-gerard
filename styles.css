@@ -33,7 +33,7 @@ body {
   margin: 0 auto;
   padding: 48px 0;
   display: grid;
-  align-content: center;
+  align-content: start;
   gap: 18px;
 }
 
