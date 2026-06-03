@@ -118,16 +118,25 @@
         document.getElementById("show-songs-button")
       ];
 
-      function showSongs() {
-        songsSection.hidden = false;
+      function setSongsVisible(isVisible) {
+        songsSection.hidden = !isVisible;
         channelButtons.forEach((button) => {
-          button?.setAttribute("aria-expanded", "true");
+          button?.setAttribute("aria-expanded", String(isVisible));
+          if (button) {
+            button.textContent = isVisible ? "Hide all songs" : "Show all songs";
+          }
         });
-        songsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (isVisible) {
+          songsSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+
+      function toggleSongs() {
+        setSongsVisible(songsSection.hidden);
       }
 
       channelButtons.forEach((button) => {
-        button?.addEventListener("click", showSongs);
+        button?.addEventListener("click", toggleSongs);
       });
 
     </script>
