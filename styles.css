@@ -421,6 +421,13 @@ h1 {
   box-shadow: 0 10px 22px rgba(230, 119, 0, 0.28);
 }
 
+.game-overlay .puzzle-open-button {
+  color: #ffffff;
+  border-color: rgba(142, 205, 255, 0.88);
+  background: linear-gradient(135deg, #1d7ed8 0%, #2f9df4 55%, #0f5ca8 100%);
+  box-shadow: 0 10px 22px rgba(30, 126, 216, 0.3);
+}
+
 footer {
   padding: 42px 0;
   border-top: 1px solid var(--surface-high);
