@@ -337,11 +337,22 @@ h1 {
 }
 
 .game-card {
+  display: block;
   min-height: 390px;
   position: relative;
   overflow: hidden;
   border-radius: 12px;
   box-shadow: var(--shadow);
+}
+
+.game-card-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.game-card-link:focus-visible {
+  outline: 3px solid #ffb42a;
+  outline-offset: 4px;
 }
 
 .game-card > img {
@@ -387,7 +398,11 @@ h1 {
   line-height: 1.55;
 }
 
-.game-overlay button {
+.game-overlay button,
+.game-overlay .game-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 42px;
   padding: 0 16px;
   color: rgba(255, 255, 255, 0.8);

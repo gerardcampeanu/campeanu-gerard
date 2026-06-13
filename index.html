@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=7995b0c">
+    <link rel="stylesheet" href="styles.css?v=solar-game-link">
   </head>
   <body>
     <header class="topbar">
@@ -131,15 +131,21 @@
         </div>
 
         <div class="games-grid">
-          <article class="game-card">
+          <a
+            class="game-card game-card-link"
+            href="https://solarskimmer.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Solar Skimmer"
+          >
             <img src="assets/solar-skimmer.png" alt="Solar Skimmer spacecraft flying above the sun">
             <div class="game-overlay">
               <p class="game-kicker">Arcade • Space</p>
               <h3>Solar Skimmer</h3>
               <p>Skim the sun, catch speed, and dodge explosive solar waves.</p>
-              <button class="solar-open-button" type="button" disabled>Open</button>
+              <span class="game-action solar-open-button">Open</span>
             </div>
-          </article>
+          </a>
 
           <article class="game-card">
             <img src="assets/puzzle-slider.png" alt="Puzzle Slider tile puzzle">
