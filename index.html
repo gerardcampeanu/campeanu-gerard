@@ -3,161 +3,165 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Gerard Campeanu</title>
-    <meta name="description" content="Gerard Campeanu's music channel and songs.">
+    <title>Gerard's World | The Family Hub</title>
+    <meta
+      name="description"
+      content="Gerard's music, games, and creative projects."
+    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    >
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="site-shell" aria-labelledby="channel-title">
-      <section class="channel-panel" id="channel" aria-labelledby="channel-title">
-        <div>
-          <p class="section-label">Channel</p>
-          <h2 id="channel-title">Gerard's channel</h2>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="http://campeanu.me/">The Family Hub</a>
+        <nav class="main-nav" aria-label="Family websites">
+          <a href="http://campeanu.me/">Home</a>
+          <a href="https://victorcampeanu.me/">Victor</a>
+          <a href="http://tomas.campeanu.me/">Tomas</a>
+          <a class="active" href="#top" aria-current="page">Gerard</a>
+        </nav>
+        <a class="home-button" href="http://campeanu.me/" aria-label="Return to family homepage">
+          <span aria-hidden="true">←</span>
+          <span>Family home</span>
+        </a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero page-width" aria-labelledby="page-title">
+        <img src="assets/gerard-hero.png" alt="" aria-hidden="true">
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Music • Games • Creative projects</p>
+          <h1 id="page-title">Gerard's World</h1>
           <p>
-            Press the channel button to open every song on this page. New songs
-            can be added here as the channel grows.
+            A digital space for my latest beats, original games, and creative
+            experiments. Step into my flow.
           </p>
+          <div class="hero-tags" aria-label="Gerard's interests">
+            <span>CyberBeats</span>
+            <span>Game creator</span>
+          </div>
         </div>
-        <div class="channel-actions">
+      </section>
+
+      <section class="content-section page-width" id="music" aria-labelledby="music-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Listen</p>
+            <h2 id="music-title">My Music</h2>
+            <p>Original tracks and production experiments.</p>
+          </div>
           <a
-            class="youtube-button"
+            class="text-link"
             href="https://www.youtube.com/@CyberBeatsSounds"
             target="_blank"
             rel="noopener noreferrer"
           >
-            YouTube channel
+            YouTube channel ↗
           </a>
-          <button
-            class="channel-button"
-            id="show-songs-button"
-            type="button"
-            aria-controls="songs"
-            aria-expanded="false"
-          >
-            Show all songs
-          </button>
-        </div>
-      </section>
-
-      <section class="game-panel" id="solar-skimmer" aria-labelledby="solar-skimmer-title">
-        <div class="game-copy">
-          <p class="section-label">Game</p>
-          <h2 id="solar-skimmer-title">Solar Skimmer</h2>
-          <p>
-            A fast space game about flying close to the sun, catching speed,
-            and dodging danger while you skim through bright solar waves.
-          </p>
-          <button class="channel-button" type="button" disabled>
-            Game link coming soon
-          </button>
-        </div>
-        <div class="game-preview" aria-hidden="true">
-          <span class="solar-orbit solar-orbit-one"></span>
-          <span class="solar-orbit solar-orbit-two"></span>
-          <span class="solar-ship"></span>
-        </div>
-      </section>
-
-      <section class="songs" id="songs" aria-labelledby="songs-title" hidden>
-        <div class="section-heading">
-          <p class="section-label">Music library</p>
-          <h2 id="songs-title">All songs</h2>
         </div>
 
-        <article class="song-card">
-          <div class="song-cover image-cover">
-            <img src="assets/sun-come-back.png" alt="Sun Come Back cover art">
-          </div>
-          <div class="song-info">
-            <p class="song-kicker">Track 01</p>
+        <div class="music-grid">
+          <article class="music-card">
+            <button class="cover-button" type="button" aria-label="Play Sun Come Back">
+              <img src="assets/sun-come-back.png" alt="Sun Come Back cover art">
+              <span class="play-button" aria-hidden="true">▶</span>
+            </button>
             <h3>Sun Come Back</h3>
-            <audio controls preload="metadata">
-              <source src="audio/sun-come-back.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-        </article>
+            <p>CyberBeats original</p>
+            <audio preload="metadata" src="audio/sun-come-back.mp3"></audio>
+          </article>
 
-        <article class="song-card">
-          <div class="song-cover image-cover">
-            <img src="assets/track-02-cover.png" alt="Track 02 cover art">
-          </div>
-          <div class="song-info">
-            <p class="song-kicker">Track 02</p>
+          <article class="music-card">
+            <button class="cover-button" type="button" aria-label="Play Sun Come Back - Disco Remix">
+              <img src="assets/track-02-cover.png" alt="Sun Come Back - Disco Remix cover art">
+              <span class="play-button" aria-hidden="true">▶</span>
+            </button>
             <h3>Sun Come Back - Disco Remix</h3>
-            <audio controls preload="metadata">
-              <source src="audio/sun-come-back-disco-remix.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-        </article>
+            <p>Disco pop remix</p>
+            <audio preload="metadata" src="audio/sun-come-back-disco-remix.mp3"></audio>
+          </article>
 
-        <article class="song-card">
-          <div class="song-cover image-cover">
-            <img src="assets/track-03-cover.png" alt="Track 03 cover art">
-          </div>
-          <div class="song-info">
-            <p class="song-kicker">Track 03</p>
+          <article class="music-card">
+            <button class="cover-button" type="button" aria-label="Play Starlight Hearts">
+              <img src="assets/track-03-cover.png" alt="Starlight Hearts cover art">
+              <span class="play-button" aria-hidden="true">▶</span>
+            </button>
             <h3>Starlight Hearts</h3>
-            <audio controls preload="metadata">
-              <source src="audio/starlight-hearts.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-        </article>
+            <p>Neon night drive</p>
+            <audio preload="metadata" src="audio/starlight-hearts.mp3"></audio>
+          </article>
 
-        <article class="song-card">
-          <div class="song-cover image-cover">
-            <img src="assets/track-04-cover.png" alt="Track 04 cover art">
-          </div>
-          <div class="song-info">
-            <p class="song-kicker">Track 04</p>
+          <article class="music-card">
+            <button class="cover-button" type="button" aria-label="Play Golden Summer Nights">
+              <img src="assets/track-04-cover.png" alt="Golden Summer Nights cover art">
+              <span class="play-button" aria-hidden="true">▶</span>
+            </button>
             <h3>Golden Summer Nights</h3>
-            <audio controls preload="metadata">
-              <source src="audio/golden-summer-nights.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-        </article>
+            <p>Summer synth pop</p>
+            <audio preload="metadata" src="audio/golden-summer-nights.mp3"></audio>
+          </article>
 
-        <article class="song-card">
-          <div class="song-cover image-cover">
-            <img src="assets/track-05-cover.png" alt="Burn It Down cover art">
-          </div>
-          <div class="song-info">
-            <p class="song-kicker">Track 05</p>
+          <article class="music-card">
+            <button class="cover-button" type="button" aria-label="Play Burn It Down">
+              <img src="assets/track-05-cover.png" alt="Burn It Down cover art">
+              <span class="play-button" aria-hidden="true">▶</span>
+            </button>
             <h3>Burn It Down</h3>
-            <audio controls preload="metadata">
-              <source src="audio/burn-it-down.mp3" type="audio/mpeg">
-            </audio>
+            <p>Rock energy</p>
+            <audio preload="metadata" src="audio/burn-it-down.mp3"></audio>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section page-width" id="games" aria-labelledby="games-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">Play</p>
+            <h2 id="games-title">Featured Games</h2>
+            <p>Two projects ready for their final game links.</p>
           </div>
-        </article>
+        </div>
+
+        <div class="games-grid">
+          <article class="game-card">
+            <img src="assets/solar-skimmer.png" alt="Solar Skimmer spacecraft flying above the sun">
+            <div class="game-overlay">
+              <p class="game-kicker">Arcade • Space</p>
+              <h3>Solar Skimmer</h3>
+              <p>Skim the sun, catch speed, and dodge explosive solar waves.</p>
+              <button type="button" disabled>Game link coming soon</button>
+            </div>
+          </article>
+
+          <article class="game-card">
+            <img src="assets/puzzle-slider.png" alt="Puzzle Slider tile puzzle">
+            <div class="game-overlay">
+              <p class="game-kicker">Puzzle • Relaxing</p>
+              <h3>Puzzle Slider</h3>
+              <p>Slide the pieces, rebuild the picture, and beat your best time.</p>
+              <button type="button" disabled>Game link coming soon</button>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
 
-    <script>
-      const songsSection = document.getElementById("songs");
-      const channelButtons = [
-        document.getElementById("show-songs-button")
-      ];
+    <footer>
+      <div class="footer-inner page-width">
+        <strong>The Family Hub</strong>
+        <p>Gerard's music, games, and creative projects.</p>
+        <a href="http://campeanu.me/">Family home</a>
+      </div>
+    </footer>
 
-      function setSongsVisible(isVisible) {
-        songsSection.hidden = !isVisible;
-        channelButtons.forEach((button) => {
-          button?.setAttribute("aria-expanded", String(isVisible));
-          if (button) {
-            button.textContent = isVisible ? "Hide all songs" : "Show all songs";
-          }
-        });
-        if (isVisible) {
-          songsSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
-
-      function toggleSongs() {
-        setSongsVisible(songsSection.hidden);
-      }
-
-      channelButtons.forEach((button) => {
-        button?.addEventListener("click", toggleSongs);
-      });
-
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
