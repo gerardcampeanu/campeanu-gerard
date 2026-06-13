@@ -399,6 +399,13 @@ h1 {
   font-weight: 700;
 }
 
+.game-overlay .solar-open-button {
+  color: #2f1800;
+  border-color: rgba(255, 210, 87, 0.85);
+  background: linear-gradient(135deg, #ffd45c 0%, #ff9f1c 55%, #e76f00 100%);
+  box-shadow: 0 10px 22px rgba(230, 119, 0, 0.28);
+}
+
 footer {
   padding: 42px 0;
   border-top: 1px solid var(--surface-high);
