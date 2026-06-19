@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Gerard Campeanu icon">
+  <defs>
+    <linearGradient id="sunset" x1="72" y1="54" x2="444" y2="458" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#164c70"/>
+      <stop offset="0.45" stop-color="#1f7f7a"/>
+      <stop offset="0.72" stop-color="#d58b16"/>
+      <stop offset="1" stop-color="#c15454"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="35%" cy="24%" r="48%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.72"/>
+      <stop offset="0.38" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#17212b" flood-opacity="0.34"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="116" fill="url(#sunset)"/>
+  <rect width="512" height="512" rx="116" fill="url(#glow)"/>
+  <circle cx="275" cy="239" r="132" fill="#213443" filter="url(#softShadow)"/>
+  <circle cx="275" cy="239" r="112" fill="none" stroke="#f3f8fa" stroke-opacity="0.2" stroke-width="9"/>
+  <circle cx="275" cy="239" r="86" fill="none" stroke="#f3f8fa" stroke-opacity="0.25" stroke-width="8"/>
+  <circle cx="275" cy="239" r="58" fill="none" stroke="#f3f8fa" stroke-opacity="0.28" stroke-width="7"/>
+  <circle cx="275" cy="239" r="25" fill="#f6f4ef"/>
+  <path d="M116 310h189" stroke="#f6f4ef" stroke-width="18" stroke-linecap="round" opacity="0.86"/>
+  <path d="M116 350h246" stroke="#f6f4ef" stroke-width="18" stroke-linecap="round" opacity="0.76"/>
+  <text
+    x="256"
+    y="304"
+    text-anchor="middle"
+    font-family="Plus Jakarta Sans, Arial, sans-serif"
+    font-size="214"
+    font-weight="800"
+    fill="#ffffff"
+    stroke="#173047"
+    stroke-width="10"
+    paint-order="stroke"
+    letter-spacing="0"
+  >G</text>
+</svg>
