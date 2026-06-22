@@ -287,7 +287,7 @@ h1 {
 
 .music-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 18px;
 }
 
@@ -332,6 +332,28 @@ h1 {
 .music-card.is-playing .cover-button img {
   filter: brightness(0.66);
   transform: scale(1.035);
+}
+
+.cover-preview {
+  cursor: default;
+}
+
+.music-card-upcoming .cover-preview img {
+  filter: brightness(0.82) saturate(1.08);
+}
+
+.coming-soon-badge {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 6px 10px;
+  color: #ffffff;
+  border-radius: 999px;
+  background: rgba(31, 27, 24, 0.72);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
 }
 
 .play-button {

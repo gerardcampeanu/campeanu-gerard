@@ -14,6 +14,10 @@ cards.forEach((card) => {
   const audio = card.querySelector("audio");
   const button = card.querySelector(".cover-button");
 
+  if (!audio || !button.matches("button")) {
+    return;
+  }
+
   button.addEventListener("click", () => {
     if (audio.paused) {
       cards.forEach((otherCard) => {
