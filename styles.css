@@ -268,6 +268,41 @@ h1 {
   color: var(--secondary);
 }
 
+.section-label-link {
+  width: fit-content;
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.section-label-link:hover,
+.section-label-link:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.archive-main {
+  min-height: calc(100vh - 190px);
+}
+
+.updates-page {
+  padding-top: 0;
+}
+
+.archive-title {
+  margin-bottom: 10px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.12;
+}
+
+.archive-intro {
+  max-width: 620px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
 .section-heading h2 {
   margin-bottom: 5px;
   font-size: clamp(2rem, 4vw, 2.7rem);
