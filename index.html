@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=remix-cover-video">
+    <link rel="stylesheet" href="styles.css?v=starlight-cover-video">
   </head>
   <body>
     <header class="topbar">
@@ -140,7 +140,17 @@
 
           <article class="music-card">
             <button class="cover-button" type="button" aria-label="Play Starlight Hearts">
-              <img src="assets/track-03-cover.png" alt="Starlight Hearts cover art">
+              <video
+                class="cover-media"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                poster="assets/track-03-cover.png"
+                src="assets/starlight-hearts-animation.mp4?v=starlight-cover-video"
+                aria-hidden="true"
+              ></video>
               <span class="play-button" aria-hidden="true">▶</span>
             </button>
             <h3>Starlight Hearts</h3>
@@ -303,6 +313,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=remix-cover-video"></script>
+    <script src="script.js?v=starlight-cover-video"></script>
   </body>
 </html>
