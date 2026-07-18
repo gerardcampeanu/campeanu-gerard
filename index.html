@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=starlight-cover-video">
+    <link rel="stylesheet" href="styles.css?v=golden-summer-video">
   </head>
   <body>
     <header class="topbar">
@@ -160,7 +160,17 @@
 
           <article class="music-card">
             <button class="cover-button" type="button" aria-label="Play Golden Summer Nights">
-              <img src="assets/track-04-cover.png" alt="Golden Summer Nights cover art">
+              <video
+                class="cover-media"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                poster="assets/track-04-cover.png"
+                src="assets/golden-summer-animation.mp4?v=golden-summer-video"
+                aria-hidden="true"
+              ></video>
               <span class="play-button" aria-hidden="true">▶</span>
             </button>
             <h3>Golden Summer Nights</h3>
@@ -313,6 +323,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=starlight-cover-video"></script>
+    <script src="script.js?v=golden-summer-video"></script>
   </body>
 </html>
