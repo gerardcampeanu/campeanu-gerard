@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=sun-cover-video-direct">
+    <link rel="stylesheet" href="styles.css?v=remix-cover-video">
   </head>
   <body>
     <header class="topbar">
@@ -120,7 +120,17 @@
 
           <article class="music-card">
             <button class="cover-button" type="button" aria-label="Play Sun Come Back - Disco Remix">
-              <img src="assets/track-02-cover.png" alt="Sun Come Back - Disco Remix cover art">
+              <video
+                class="cover-media"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="auto"
+                poster="assets/track-02-cover.png"
+                src="assets/sun-come-back-remix-animation.mp4?v=remix-cover-video"
+                aria-hidden="true"
+              ></video>
               <span class="play-button" aria-hidden="true">▶</span>
             </button>
             <h3>Sun Come Back - Disco Remix</h3>
@@ -293,6 +303,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=sun-cover-video-direct"></script>
+    <script src="script.js?v=remix-cover-video"></script>
   </body>
 </html>
