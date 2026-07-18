@@ -171,18 +171,6 @@ img {
   position: relative;
   display: inline-block;
   flex: 0 0 auto;
-}
-
-.theme-icon-moon,
-:root[data-theme="dark"] .theme-icon-sun {
-  display: none;
-}
-
-:root[data-theme="dark"] .theme-icon-moon {
-  display: inline-block;
-}
-
-.theme-icon-sun {
   border-radius: 50%;
   background: #ffb42a;
   box-shadow:
@@ -196,8 +184,7 @@ img {
     -6px 6px 0 -6px #ffb42a;
 }
 
-.theme-icon-moon {
-  border-radius: 50%;
+:root[data-theme="dark"] .theme-icon {
   background: #8bc8ff;
   box-shadow: inset -6px 0 0 var(--panel-bg);
 }
