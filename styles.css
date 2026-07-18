@@ -166,8 +166,8 @@ img {
 }
 
 .theme-icon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   position: relative;
   display: inline-block;
   flex: 0 0 auto;
@@ -185,8 +185,33 @@ img {
 }
 
 :root[data-theme="dark"] .theme-icon {
-  background: #8bc8ff;
-  box-shadow: inset -6px 0 0 var(--panel-bg);
+  width: 22px;
+  height: 22px;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transform: rotate(-28deg);
+}
+
+:root[data-theme="dark"] .theme-icon::before,
+:root[data-theme="dark"] .theme-icon::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+:root[data-theme="dark"] .theme-icon::before {
+  inset: 1px 2px 1px 3px;
+  background: #ffd76a;
+  box-shadow: 0 0 10px rgba(255, 215, 106, 0.42);
+}
+
+:root[data-theme="dark"] .theme-icon::after {
+  width: 18px;
+  height: 20px;
+  top: 1px;
+  left: 8px;
+  background: var(--panel-bg);
 }
 
 main {
