@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=whispers-silverlight">
+    <link rel="stylesheet" href="styles.css?v=sun-come-back-animation">
   </head>
   <body>
     <header class="topbar">
@@ -100,7 +100,18 @@
         <div class="music-grid">
           <article class="music-card">
             <button class="cover-button" type="button" aria-label="Play Sun Come Back">
-              <img src="assets/sun-come-back.png" alt="Sun Come Back cover art">
+              <video
+                class="cover-media"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="assets/sun-come-back.png"
+                aria-hidden="true"
+              >
+                <source src="assets/sun-come-back-animation.mp4" type="video/mp4">
+              </video>
               <span class="play-button" aria-hidden="true">▶</span>
             </button>
             <h3>Sun Come Back</h3>
@@ -283,6 +294,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=whispers-silverlight"></script>
+    <script src="script.js?v=sun-come-back-animation"></script>
   </body>
 </html>
