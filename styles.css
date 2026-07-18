@@ -4,6 +4,7 @@
   --surface-low: #fbf2ed;
   --surface-high: #efe6e2;
   --white: #ffffff;
+  --panel-bg: #ffffff;
   --ink: #1f1b18;
   --muted: #42474d;
   --primary: #35607f;
@@ -13,7 +14,32 @@
   --secondary-soft: #ffdbcf;
   --outline: #c2c7ce;
   --shadow: 0 16px 42px rgba(53, 96, 127, 0.12);
+  --card-border: rgba(194, 199, 206, 0.6);
+  --card-bg: rgba(255, 255, 255, 0.66);
+  --topbar-bg: rgba(255, 248, 245, 0.94);
+  --theme-dot-bg: #1f1b18;
   font-family: "Be Vietnam Pro", system-ui, sans-serif;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #0d1117;
+  --surface-low: #141a22;
+  --surface-high: #26303c;
+  --panel-bg: #151b23;
+  --ink: #f4f7fb;
+  --muted: #bac5d1;
+  --primary: #8bc8ff;
+  --primary-dark: #d7ecff;
+  --primary-soft: #b7ddff;
+  --secondary: #ffb897;
+  --secondary-soft: #492d26;
+  --outline: #44505f;
+  --shadow: 0 18px 48px rgba(0, 0, 0, 0.42);
+  --card-border: rgba(112, 128, 148, 0.5);
+  --card-bg: rgba(21, 27, 35, 0.78);
+  --topbar-bg: rgba(13, 17, 23, 0.9);
+  --theme-dot-bg: #f4f7fb;
 }
 
 * {
@@ -51,7 +77,7 @@ img {
   z-index: 20;
   top: 0;
   border-bottom: 1px solid var(--surface-high);
-  background: rgba(255, 248, 245, 0.94);
+  background: var(--topbar-bg);
   backdrop-filter: blur(16px);
 }
 
@@ -102,11 +128,55 @@ img {
   color: var(--primary);
   border: 1px solid var(--outline);
   border-radius: 8px;
-  background: var(--white);
+  background: var(--panel-bg);
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 0.82rem;
   font-weight: 700;
   text-decoration: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+
+.theme-toggle {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  color: var(--primary);
+  border: 1px solid var(--outline);
+  border-radius: 8px;
+  background: var(--panel-bg);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible,
+.home-button:hover,
+.home-button:focus-visible {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.theme-dot {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--outline);
+  border-radius: 50%;
+  background: linear-gradient(90deg, var(--theme-dot-bg) 0 50%, transparent 50%);
+  box-shadow: inset 0 0 0 3px var(--panel-bg);
+}
+
+:root[data-theme="dark"] .theme-dot {
+  background: linear-gradient(90deg, #f4f7fb 0 50%, #0d1117 50%);
 }
 
 main {
@@ -210,7 +280,7 @@ h1 {
   padding: 28px 32px;
   border: 1px solid var(--surface-high);
   border-radius: 12px;
-  background: var(--white);
+  background: var(--panel-bg);
   box-shadow: var(--shadow);
 }
 
@@ -335,9 +405,9 @@ h1 {
 .music-card {
   min-width: 0;
   padding: 16px;
-  border: 1px solid rgba(194, 199, 206, 0.6);
+  border: 1px solid var(--card-border);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.66);
+  background: var(--card-bg);
   box-shadow: var(--shadow);
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
@@ -345,7 +415,7 @@ h1 {
 .music-card:hover,
 .music-card.is-playing {
   border-color: var(--primary);
-  background: var(--white);
+  background: var(--panel-bg);
   transform: translateY(-4px);
 }
 
@@ -588,6 +658,16 @@ footer {
   }
 
   .home-button span:last-child {
+    display: none;
+  }
+
+  .theme-toggle {
+    width: 42px;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .theme-toggle span:last-child {
     display: none;
   }
 
