@@ -1,6 +1,5 @@
 const cards = Array.from(document.querySelectorAll(".music-card"));
 const themeToggle = document.querySelector("[data-theme-toggle]");
-const themeLabel = document.querySelector("[data-theme-label]");
 const themeStorageKey = "gerard-theme";
 
 function applyTheme(theme) {
@@ -15,10 +14,6 @@ function applyTheme(theme) {
       "aria-label",
       darkMode ? "Switch to white theme" : "Switch to black theme"
     );
-  }
-
-  if (themeLabel) {
-    themeLabel.textContent = darkMode ? "White" : "Black";
   }
 }
 
