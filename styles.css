@@ -141,13 +141,12 @@ img {
 }
 
 .theme-toggle {
-  width: 74px;
+  width: 46px;
   min-height: 42px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 0 12px;
+  padding: 0;
   color: var(--primary);
   border: 1px solid var(--outline);
   border-radius: 8px;
@@ -172,6 +171,15 @@ img {
   position: relative;
   display: inline-block;
   flex: 0 0 auto;
+}
+
+.theme-icon-moon,
+:root[data-theme="dark"] .theme-icon-sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-icon-moon {
+  display: inline-block;
 }
 
 .theme-icon-sun {
@@ -677,9 +685,7 @@ footer {
   }
 
   .theme-toggle {
-    width: 58px;
-    gap: 7px;
-    padding: 0 9px;
+    width: 42px;
   }
 
   main {
