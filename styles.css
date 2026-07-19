@@ -473,14 +473,13 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 240ms ease, filter 240ms ease;
+  transition: transform 240ms ease;
 }
 
 .cover-button:hover img,
 .cover-button:hover video,
 .music-card.is-playing .cover-button img,
 .music-card.is-playing .cover-button video {
-  filter: brightness(0.66);
   transform: scale(1.035);
 }
 
