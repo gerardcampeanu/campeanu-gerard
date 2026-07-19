@@ -46,9 +46,24 @@ function updateCard(card, playing) {
 cards.forEach((card) => {
   const audio = card.querySelector("audio");
   const button = card.querySelector(".cover-button");
+  const coverVideo = card.querySelector(".cover-media");
 
   if (!audio || !button.matches("button")) {
     return;
+  }
+
+  if (coverVideo) {
+    coverVideo.pause();
+    coverVideo.currentTime = 0;
+
+    button.addEventListener("mouseenter", () => {
+      coverVideo.play().catch(() => {});
+    });
+
+    button.addEventListener("mouseleave", () => {
+      coverVideo.pause();
+      coverVideo.currentTime = 0;
+    });
   }
 
   button.addEventListener("click", () => {
