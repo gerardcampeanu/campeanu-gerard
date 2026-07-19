@@ -510,12 +510,14 @@ h1 {
 }
 
 .music-card h3 {
+  min-height: 2.7em;
   margin: 16px 0 5px;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   font-size: 1rem;
   line-height: 1.35;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .music-card p {
@@ -837,7 +839,6 @@ footer {
   .music-card h3 {
     align-self: end;
     margin: 0 0 4px;
-    white-space: normal;
   }
 
   .music-card p {
