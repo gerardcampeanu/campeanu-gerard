@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=hover-video-covers">
+    <link rel="stylesheet" href="styles.css?v=mini-player">
   </head>
   <body>
     <header class="topbar">
@@ -402,6 +402,26 @@
       </section>
     </main>
 
+    <aside
+      class="mini-player"
+      data-mini-player
+      aria-label="Music mini player"
+      hidden
+    >
+      <img class="mini-player-cover" data-player-cover src="assets/sun-come-back.png" alt="">
+      <div class="mini-player-info">
+        <p>Now playing</p>
+        <h2 data-player-title>Sun Come Back</h2>
+        <span data-player-subtitle>CyberBeats original</span>
+      </div>
+      <div class="mini-player-controls" aria-label="Playlist controls">
+        <button type="button" class="mini-control" data-player-prev aria-label="Previous song">‹</button>
+        <button type="button" class="mini-control mini-control-primary" data-player-toggle aria-label="Pause song">❚❚</button>
+        <button type="button" class="mini-control" data-player-next aria-label="Next song">›</button>
+      </div>
+      <button type="button" class="mini-player-close" data-player-close aria-label="Close player">×</button>
+    </aside>
+
     <footer>
       <div class="footer-inner page-width">
         <strong>The Family Hub</strong>
@@ -410,6 +430,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=hover-video-covers"></script>
+    <script src="script.js?v=mini-player"></script>
   </body>
 </html>
