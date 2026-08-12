@@ -16,7 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     >
-    <link rel="stylesheet" href="styles.css?v=mini-player">
+    <link rel="stylesheet" href="styles.css?v=funky-sunshine">
   </head>
   <body>
     <header class="topbar">
@@ -69,6 +69,15 @@
           <a class="section-label section-label-link" href="updates.html">See past updates</a>
           <h2 id="updates-title">Updates</h2>
           <article class="update-entry">
+            <time datetime="2026-08-12">August 12, 2026</time>
+            <h3>New song added: Funky Sunshine</h3>
+            <p>
+              Funky Sunshine is now on the CyberBeats music page. Tap the cover
+              to open it in the mini player, then let it roll into the playlist.
+            </p>
+          </article>
+
+          <article class="update-entry">
             <time datetime="2026-07-19">July 19, 2026</time>
             <h3>Animations are launching</h3>
             <p>
@@ -108,6 +117,25 @@
         </div>
 
         <div class="music-grid">
+          <article class="music-card">
+            <button class="cover-button" type="button" aria-label="Play Funky Sunshine">
+              <video
+                class="cover-media"
+                muted
+                loop
+                playsinline
+                preload="auto"
+                poster="assets/funky-sunshine-cover.jpg"
+                src="assets/funky-sunshine-animation.mp4?v=funky-sunshine"
+                aria-hidden="true"
+              ></video>
+              <span class="play-button" aria-hidden="true">▶</span>
+            </button>
+            <h3>Funky Sunshine</h3>
+            <p>Bright funky groove</p>
+            <audio preload="metadata" src="audio/funky-sunshine.mp3"></audio>
+          </article>
+
           <article class="music-card">
             <button class="cover-button" type="button" aria-label="Play Sun Come Back">
               <video
@@ -430,6 +458,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=mini-player"></script>
+    <script src="script.js?v=funky-sunshine"></script>
   </body>
 </html>
