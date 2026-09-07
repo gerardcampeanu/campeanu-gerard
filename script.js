@@ -35,6 +35,24 @@ const playerToggle = document.querySelector("[data-player-toggle]");
 const playerPrev = document.querySelector("[data-player-prev]");
 const playerNext = document.querySelector("[data-player-next]");
 const playerClose = document.querySelector("[data-player-close]");
+const playerProgress = document.querySelector("[data-player-progress]");
+const playerProgressFill = document.querySelector("[data-player-progress-fill]");
+const playerTime = document.querySelector("[data-player-time]");
+const playerWaveform = document.querySelector("[data-player-waveform]");
+const waveformPattern = [38, 66, 48, 84, 58, 72, 42, 90, 54, 76, 34, 68, 88, 46, 60, 80, 50, 70, 40, 92, 56, 74, 44, 64, 86, 52, 78, 36];
+const waveformBars = [];
+
+if (playerWaveform) {
+  waveformPattern.forEach((height, index) => {
+    const bar = document.createElement("span");
+
+    bar.className = "waveform-bar";
+    bar.style.setProperty("--bar-height", `${height}%`);
+    bar.style.setProperty("--bar-delay", `${index * -47}ms`);
+    playerWaveform.append(bar);
+    waveformBars.push(bar);
+  });
+}
 
 const playlist = cards
   .map((card) => {
@@ -55,6 +73,61 @@ const playlist = cards
   .filter(Boolean);
 
 let activeIndex = -1;
+let progressAnimationFrame = 0;
+
+function formatTime(seconds) {
+  if (!Number.isFinite(seconds) || seconds < 0) {
+    return "0:00";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = Math.floor(seconds % 60).toString().padStart(2, "0");
+
+  return `${minutes}:${remainingSeconds}`;
+}
+
+function setPlayerProgress(track) {
+  const audio = track?.audio;
+  const duration = audio?.duration ?? 0;
+  const currentTime = audio?.currentTime ?? 0;
+  const progress = duration > 0 ? Math.min((currentTime / duration) * 100, 100) : 0;
+  const playedBars = Math.round((progress / 100) * waveformBars.length);
+
+  playerProgress?.style.setProperty("--player-progress", progress);
+  playerProgress?.setAttribute("aria-valuenow", String(Math.round(progress)));
+  playerProgressFill?.style.setProperty("--player-progress", progress);
+
+  waveformBars.forEach((bar, index) => {
+    bar.classList.toggle("is-played", index < playedBars);
+  });
+
+  if (playerTime) {
+    playerTime.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+  }
+}
+
+function stopProgressLoop() {
+  if (progressAnimationFrame) {
+    window.cancelAnimationFrame(progressAnimationFrame);
+    progressAnimationFrame = 0;
+  }
+}
+
+function startProgressLoop() {
+  stopProgressLoop();
+
+  const tick = () => {
+    const activeTrack = playlist[activeIndex];
+
+    setPlayerProgress(activeTrack);
+
+    if (activeTrack && !activeTrack.audio.paused) {
+      progressAnimationFrame = window.requestAnimationFrame(tick);
+    }
+  };
+
+  tick();
+}
 
 function resetCoverVideo(video) {
   if (!video) {
@@ -74,6 +147,8 @@ function updatePlayer() {
   const activeTrack = playlist[activeIndex];
   const isPlaying = Boolean(activeTrack && !activeTrack.audio.paused);
 
+  miniPlayer?.classList.toggle("is-playing", isPlaying);
+
   playlist.forEach((track, index) => {
     const active = index === activeIndex && isPlaying;
 
@@ -87,6 +162,7 @@ function updatePlayer() {
     playerCover.alt = `${activeTrack.title} cover art`;
     playerTitle.textContent = activeTrack.title;
     playerSubtitle.textContent = activeTrack.subtitle;
+    setPlayerProgress(activeTrack);
   }
 
   if (playerToggle) {
@@ -161,9 +237,31 @@ playlist.forEach((track, index) => {
   });
 
   track.card.tabIndex = 0;
-  track.audio.addEventListener("play", updatePlayer);
-  track.audio.addEventListener("pause", updatePlayer);
+  track.audio.addEventListener("loadedmetadata", () => setPlayerProgress(track));
+  track.audio.addEventListener("timeupdate", () => setPlayerProgress(track));
+  track.audio.addEventListener("play", () => {
+    updatePlayer();
+    startProgressLoop();
+  });
+  track.audio.addEventListener("pause", () => {
+    updatePlayer();
+    stopProgressLoop();
+  });
   track.audio.addEventListener("ended", playNextTrack);
+});
+
+playerProgress?.addEventListener("click", (event) => {
+  const activeTrack = playlist[activeIndex];
+
+  if (!activeTrack || !Number.isFinite(activeTrack.audio.duration)) {
+    return;
+  }
+
+  const bounds = playerProgress.getBoundingClientRect();
+  const clickProgress = (event.clientX - bounds.left) / bounds.width;
+
+  activeTrack.audio.currentTime = Math.max(0, Math.min(clickProgress, 1)) * activeTrack.audio.duration;
+  setPlayerProgress(activeTrack);
 });
 
 playerToggle?.addEventListener("click", () => {
