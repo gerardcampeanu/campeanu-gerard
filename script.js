@@ -39,20 +39,43 @@ const playerProgress = document.querySelector("[data-player-progress]");
 const playerProgressFill = document.querySelector("[data-player-progress-fill]");
 const playerTime = document.querySelector("[data-player-time]");
 const playerWaveform = document.querySelector("[data-player-waveform]");
-const waveformPattern = [38, 66, 48, 84, 58, 72, 42, 90, 54, 76, 34, 68, 88, 46, 60, 80, 50, 70, 40, 92, 56, 74, 44, 64, 86, 52, 78, 36];
+const defaultWaveformPattern = [38, 66, 48, 84, 58, 72, 42, 90, 54, 76, 34, 68, 88, 46, 60, 80, 50, 70, 40, 92, 56, 74, 44, 64, 86, 52, 78, 36];
 const waveformBars = [];
 
-if (playerWaveform) {
-  waveformPattern.forEach((height, index) => {
+function parseWaveform(value) {
+  if (!value) {
+    return defaultWaveformPattern;
+  }
+
+  const heights = value
+    .split(",")
+    .map((height) => Number(height.trim()))
+    .filter((height) => Number.isFinite(height) && height > 0);
+
+  return heights.length ? heights : defaultWaveformPattern;
+}
+
+function renderWaveform(pattern = defaultWaveformPattern) {
+  waveformBars.length = 0;
+
+  if (!playerWaveform) {
+    return;
+  }
+
+  playerWaveform.textContent = "";
+  playerWaveform.style.setProperty("--waveform-bars", pattern.length);
+
+  pattern.forEach((height) => {
     const bar = document.createElement("span");
 
     bar.className = "waveform-bar";
     bar.style.setProperty("--bar-height", `${height}%`);
-    bar.style.setProperty("--bar-delay", `${index * -47}ms`);
     playerWaveform.append(bar);
     waveformBars.push(bar);
   });
 }
+
+renderWaveform();
 
 const playlist = cards
   .map((card) => {
@@ -63,12 +86,13 @@ const playlist = cards
     const title = card.querySelector("h3")?.textContent?.trim() ?? "Untitled song";
     const subtitle = card.querySelector("p")?.textContent?.trim() ?? "CyberBeats";
     const cover = coverVideo?.getAttribute("poster") ?? coverImage?.getAttribute("src") ?? "";
+    const waveform = parseWaveform(card.dataset.waveform);
 
     if (!audio || !button?.matches("button")) {
       return null;
     }
 
-    return { audio, button, card, cover, coverVideo, subtitle, title };
+    return { audio, button, card, cover, coverVideo, subtitle, title, waveform };
   })
   .filter(Boolean);
 
@@ -91,7 +115,9 @@ function setPlayerProgress(track) {
   const duration = audio?.duration ?? 0;
   const currentTime = audio?.currentTime ?? 0;
   const progress = duration > 0 ? Math.min((currentTime / duration) * 100, 100) : 0;
-  const playedBars = Math.round((progress / 100) * waveformBars.length);
+  const exactBar = (progress / 100) * waveformBars.length;
+  const playedBars = Math.floor(exactBar);
+  const currentBar = Math.min(Math.floor(exactBar), waveformBars.length - 1);
 
   playerProgress?.style.setProperty("--player-progress", progress);
   playerProgress?.setAttribute("aria-valuenow", String(Math.round(progress)));
@@ -99,6 +125,7 @@ function setPlayerProgress(track) {
 
   waveformBars.forEach((bar, index) => {
     bar.classList.toggle("is-played", index < playedBars);
+    bar.classList.toggle("is-current", index === currentBar && progress > 0 && progress < 100);
   });
 
   if (playerTime) {
@@ -158,6 +185,7 @@ function updatePlayer() {
 
   if (activeTrack) {
     miniPlayer.hidden = false;
+    renderWaveform(activeTrack.waveform);
     playerCover.src = activeTrack.cover;
     playerCover.alt = `${activeTrack.title} cover art`;
     playerTitle.textContent = activeTrack.title;

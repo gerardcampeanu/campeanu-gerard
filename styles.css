@@ -590,10 +590,11 @@ h1 {
 }
 
 .player-progress {
-  height: 8px;
+  width: min(150px, 52%);
+  height: 3px;
   position: relative;
   overflow: hidden;
-  margin-top: 12px;
+  margin-top: 10px;
   border-radius: 999px;
   background: color-mix(in srgb, var(--surface-high) 72%, transparent);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--primary) 24%, transparent);
@@ -606,16 +607,17 @@ h1 {
   display: block;
   border-radius: inherit;
   background: linear-gradient(90deg, #77c4ff, #2b8dff 62%, #b569ff);
-  box-shadow: 0 0 18px color-mix(in srgb, var(--primary) 70%, transparent);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--primary) 58%, transparent);
 }
 
 .player-waveform {
-  height: 34px;
+  width: min(320px, 100%);
+  height: 30px;
   display: grid;
-  grid-template-columns: repeat(28, 1fr);
-  gap: 3px;
+  grid-template-columns: repeat(var(--waveform-bars, 28), 1fr);
+  gap: 2px;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .waveform-bar {
@@ -633,9 +635,11 @@ h1 {
   box-shadow: 0 0 10px color-mix(in srgb, var(--primary) 54%, transparent);
 }
 
-.mini-player.is-playing .waveform-bar {
-  animation: waveform-pulse 920ms ease-in-out infinite alternate;
-  animation-delay: var(--bar-delay);
+.waveform-bar.is-current {
+  background: linear-gradient(180deg, #ffffff, #7cccff 52%, #b569ff);
+  opacity: 1;
+  transform: scaleY(1.14);
+  box-shadow: 0 0 16px color-mix(in srgb, var(--primary) 72%, transparent);
 }
 
 .player-time {
@@ -692,16 +696,6 @@ h1 {
 .mini-player-close:hover {
   border-color: var(--primary);
   transform: translateY(-1px);
-}
-
-@keyframes waveform-pulse {
-  from {
-    transform: scaleY(0.76);
-  }
-
-  to {
-    transform: scaleY(1.08);
-  }
 }
 
 .games-grid {
